@@ -37,7 +37,7 @@ class DishDetail extends Component{
                 <div className="list-unstyled">
                     <div tag="li">{comment.comment}</div>
                     <br />
-                    <div tag="li">{comment.author},{comment.date}</div>
+                    <div tag="li">--{comment.author}, {new Intl.DateTimeFormat('en-US',{ year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</div>
                     <br />
                 </div>
         );
