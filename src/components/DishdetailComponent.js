@@ -26,7 +26,7 @@ import CommentForm from './CommentForm';
 		}
     }
 
-   function RenderComments({comments}){
+   function RenderComments({comments, addComment, dishId}){
         const item = comments.map((comment)=>
                 <div className="list-unstyled">
                     <div tag="li">{comment.comment}</div>
@@ -36,10 +36,10 @@ import CommentForm from './CommentForm';
                 </div>
         );
         return(
-            <>
-        <div>{item}
-        </div>
-        <CommentForm/>
+        <>
+            <div>{item}
+            </div>
+            <CommentForm dishId={dishId} addComment={addComment}/>
         </>
         );
     }
@@ -63,7 +63,8 @@ import CommentForm from './CommentForm';
                 <div className="col-12 col-md-5 m-1"><RenderDish dish={props.dish} /></div>
                 <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
-                    <RenderComments comments = {props.comments}/>
+                    <RenderComments comments = {props.comments} addComment={props.addComment}
+                     dishId={props.dish.id}/>
                 </div>
             </div>
             </div>
