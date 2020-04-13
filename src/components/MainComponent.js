@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Switch, Route, Redirect, withRouter} from 'react-router-dom';// withRouter is needed so as to use route in redux
 import { addComment, fetchDishes } from '../redux/ActionCreators';
+import { actions } from 'react-redux-form';//this have actions defined for react-redux-form so we need not to write actions
 import { connect } from 'react-redux';
 import Home from './HomeComponent';
 import Menu from './MenuComponent';
@@ -22,7 +23,8 @@ const mapStateToProps = state => {
 }
 const mapDispatchToProps = dispatch =>({
   addComment: (dishId, rating, author, comment)=> dispatch(addComment(dishId,rating,author,comment)),
-  fetchDishes: () => { dispatch(fetchDishes())}
+  fetchDishes: () => { dispatch(fetchDishes())},
+  resetFeedbackForm: () => { dispatch(actions.reset('feedback'))}//this is the component that will be dispatched and it will reset the form and will be available as props
 });
 
 
@@ -65,7 +67,7 @@ class Main extends Component{
         <Route exact path="/menu" component={()=><Menu dishes={this.props.dishes}/>}/>
         <Route path='/menu/:dishId' component={DishWithId}/>
         <Route path='/aboutus' component={()=><About leaders={this.props.leaders}/>}/>
-        <Route exact path="/contactus" component={Contact} />
+        <Route exact path='/contactus' component={() => <Contact resetFeedbackForm={this.props.resetFeedbackForm} />} />
         <Redirect to="/home"/>
       </Switch>
         <Footer/>
