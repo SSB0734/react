@@ -10,8 +10,8 @@ export const Comments = (state = { errMess: null, comments:[]}, action) => {
 
     case ActionTypes.ADD_COMMENT:
         var comment = action.payload;
-        comment.id = state.comments.length;
-        comment.date = new Date().toISOString();
+        //comment.id = state.comments.length;we have removed comment.id from here because our server will automatically add id to each comment
+        //comment.date = new Date().toISOString();we have already added comment.date in postcomment inplementation. 
         return { ...state, comments: state.comments.concat(comment)};
 
     default:

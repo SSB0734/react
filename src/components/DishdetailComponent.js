@@ -28,7 +28,7 @@ import { baseUrl } from '../shared/baseUrl';
 		}
     }
 
-   function RenderComments({comments, addComment, dishId}){
+   function RenderComments({comments, postComment, dishId}){
         const item = comments.map((comment)=>
                 <div className="list-unstyled">
                     <div tag="li">{comment.comment}</div>
@@ -41,7 +41,7 @@ import { baseUrl } from '../shared/baseUrl';
         <>
             <div>{item}
             </div>
-            <CommentForm dishId={dishId} addComment={addComment}/>
+            <CommentForm dishId={dishId} postComment={postComment}/>
         </>
         );
     }
@@ -83,7 +83,7 @@ import { baseUrl } from '../shared/baseUrl';
                 <div className="col-12 col-md-5 m-1"><RenderDish dish={props.dish} /></div>
                 <div className="col-12 col-md-5 m-1">
                     <h4>Comments</h4>
-                    <RenderComments comments = {props.comments} addComment={props.addComment}
+                    <RenderComments comments = {props.comments} postComment={props.postComment}
                      dishId={props.dish.id}/>
                 </div>
             </div>
