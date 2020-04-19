@@ -16,7 +16,7 @@ class CommentForm extends Component{
     }
     handleSubmit(values) {
         this.toggleModal();
-        this.props.postComment(this.props.dishId,values.rating,values.author,values.comment)
+        this.props.postComment(this.props.dishId,values.rating,values.author,values.comment);
     }
     render(){
         const maxLength= (len) => (val)=>!(val) || (val.length<=len);
@@ -33,7 +33,7 @@ class CommentForm extends Component{
                             <Row className="form-group">
                                 <Label htmlFor="Rating" md={6}><h6>Rating</h6></Label>
                                 <Col md={12}>
-                                    <Control.select model=".Rating" name="Rating" className="form-control" defaultValue="5"> 
+                                    <Control.select model=".rating" name="rating" className="form-control" defaultValue="5"> 
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
