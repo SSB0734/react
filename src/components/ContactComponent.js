@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { Breadcrumb, BreadcrumbItem,Button,Label,Col,Row } from 'reactstrap';
-import {Form, Errors, Control,actions} from 'react-redux-form';//we have removed localfrom and instead have used form so that we can use features of other redux components and form actions
+import {Form, Errors, Control} from 'react-redux-form';//we have removed localfrom and instead have used form so that we can use features of other redux components and form actions
 import { Link } from 'react-router-dom';
 
 class Contact extends Component {
@@ -57,7 +57,7 @@ class Contact extends Component {
                     <div className="col-12 col-sm-11 offset-sm-1">
                         <div className="btn-group" role="group">
                             <a role="button" className="btn btn-primary" href="tel:+85212345678"><i className="fa fa-phone"></i> Call</a>
-                            <a role="button" className="btn btn-info"><i className="fa fa-skype"></i> Skype</a>
+                            <a role="button" className="btn btn-info" href="www.skype.com"><i className="fa fa-skype"></i> Skype</a>
                             <a role="button" className="btn btn-success" href="mailto:confusion@food.net"><i className="fa fa-envelope-o"></i> Email</a>
                         </div>
                     </div>

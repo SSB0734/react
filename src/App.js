@@ -7,9 +7,6 @@ import { ConfigureStore } from './redux/configureStore';
 const store = ConfigureStore();
 
 class App extends Component{
-constructor(props){
-  super(props);
-}
 
   render(){
     return(
